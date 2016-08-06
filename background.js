@@ -29,3 +29,16 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
     });
   }
 });
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+  chrome.tabs.executeScript({
+    code: ' document.addEventListener("click", function(e) { \
+              chrome.runtime.sendMessage({image: e.target.src}) \
+            }, false);                                            '
+  });
+});
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    alert(request.image);
+  });

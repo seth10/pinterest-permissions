@@ -15,8 +15,7 @@
 
   "browser_action": {
     "default_icon": "icons/icon38.png",
-    "default_title": "ρ³",
-    "default_popup": "popup.html"
+    "default_title": "ρ³"
   },
 
   "permissions": [
