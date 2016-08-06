@@ -16,29 +16,31 @@ chrome.runtime.onInstalled.addListener(function() {
 
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   if(info.menuItemId == 'p^3 context menu') {
-    chrome.notifications.create({
-      type: 'image',
-      title: 'Snipped!',
-      message: 'I like it.',
-      iconUrl: 'icons/icon128.png',
-      imageUrl: info.srcUrl,
-      buttons: [
-        { title: 'Me too!' },
-        { title: 'Oops, undo that' }
-      ]
-    });
+    snip(info.srcUrl);
   }
 });
 
 chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.executeScript({
-    code: ' document.addEventListener("click", function(e) { \
-              chrome.runtime.sendMessage({image: e.target.src}) \
-            }, false);                                            '
+    file: 'ClickGetImg.js'
   });
 });
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    alert(request.image);
+    snip(request.image);
   });
+
+function snip(imgUrl) {
+  chrome.notifications.create({
+    type: 'image',
+    title: 'Snipped!',
+    message: 'I like it.',
+    iconUrl: 'icons/icon128.png',
+    imageUrl: imgUrl,
+    buttons: [
+      { title: 'Me too!' },
+      { title: 'Oops, undo that' }
+    ]
+  });
+}
