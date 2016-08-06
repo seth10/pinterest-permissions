@@ -16,6 +16,11 @@ chrome.runtime.onInstalled.addListener(function() {
 
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   if(info.menuItemId == 'p^3 context menu') {
-    alert('Cool!');
+    chrome.windows.create({
+      url: info.srcUrl,
+      type: 'popup',
+      width: 480,
+      height: 360
+    });
   }
 });
