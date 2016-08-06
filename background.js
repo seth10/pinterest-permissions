@@ -16,11 +16,16 @@ chrome.runtime.onInstalled.addListener(function() {
 
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   if(info.menuItemId == 'p^3 context menu') {
-    chrome.windows.create({
-      url: info.srcUrl,
-      type: 'popup',
-      width: 480,
-      height: 360
+    chrome.notifications.create({
+      type: 'image',
+      title: 'Snipped!',
+      message: 'I like it.',
+      iconUrl: 'icons/icon128.png',
+      imageUrl: info.srcUrl,
+      buttons: [
+        { title: 'Me too!' },
+        { title: 'Oops, undo that' }
+      ]
     });
   }
 });
