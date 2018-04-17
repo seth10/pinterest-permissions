@@ -3,7 +3,7 @@ The Pinterest extension can function without accessing all of your Chrome data -
 
 ## Motivation
 The [Pinterest Save Button](https://about.pinterest.com/en/browser-button) [Chrome extension](https://chrome.google.com/webstore/detail/pinterest-save-button/gpdjojdkbbmdfjfahjcgigfpmkopogic) allows users to collect images by quickly adding them to their Boards. Unfortunately, the extension requires some overbearing permissions. Namely, the ability to access all browsing data.
-![Pinterest Save Button add dialog and permissions](Pinterest Save Button Permissions.png)
+![Pinterest Save Button add dialog and permissions](Pinterest%20Save%20Button%20Permissions.png)
 
 ## Goal
 The intent of this project is to demonstrate how the functionality of the Pinterest Save Button can be implemented without any special permissions.
